@@ -1,62 +1,76 @@
 
 
 var container = document.querySelector('#section')
+var boxes = document.querySelector('section .box')
+var text = document.querySelector('div .text')
 
-var reset = document.querySelector('.reset');
+var X = 'X'
 
-
-var square = ['','','','','','','','',''];
-var player1 = 'O';
-var player2  = 'X';
-var currentPlayer = player1;
-var gameOver = false;
-var turn = 'X'
-
-var swapTurn = function(turn){
-    if (turn === X){
-        return "0";
-    } else {
-        return "X";
+container.addEventListener('click', function(event){
+    boxClicked = event.target
+    if(boxClicked.tagName === 'DIV'){
+        boxClicked.textContent = X
     }
-}
-
-
-var winner = ()=>{
-
-}
-
-
-//game logic 
-
-var boxes = document.getElementsByClassName('box');
-Array.from(boxes).forEach(element =>{
-    var text = document.querySelector('.text')
-    element.addEventListener('click', ()=>{
-        if(text.innerText === ''){
-            text.innerText = turn;
-            swapTurn();
-            winner();
-        }
-    })
 })
 
 
+// var
+
+// var reset = document.querySelector('.reset');
 
 
-// var playerX; 
-// var playerY;
+// var square = ['','','','','','','','',''];
+// var player1 = 'O';
+// var player2  = 'X';
+// var currentPlayer = player1;
+// var gameOver = false;
+// var turn = 'X'
 
-// var container = document.querySelector('#section')
-// var box = Array.from(document.querySelectorAll('.box'))
-// var cross = document.querySelector('.cross')
-// var circle = document.querySelector('.zero')
-// var p1 = document.querySelector('.p1')
-// var p2 = document.querySelector('.p2')
-// var player1 = document.querySelector('.player1')
-// var player2 = document.querySelector('.player2')
-// var result = document.querySelector('#result')
+// var swapTurn = function(turn){
+//     if (turn === X){
+//         return "0";
+//     } else {
+//         return "X";
+//     }
+// }
 
-// container.addEventListener('click', e)
+
+// var winner = ()=>{
+
+// }
+
+
+// //game logic 
+
+// var boxes = document.getElementsByClassName('box');
+// Array.from(boxes).forEach(element =>{
+//     var text = document.querySelector('.text')
+//     element.addEventListener('click', ()=>{
+//         if(text.innerText === ''){
+//             text.innerText = turn;
+//             swapTurn();
+//             winner();
+//         }
+//     })
+// })
+
+
+
+
+// // var playerX; 
+// // var playerY;
+
+// // var container = document.querySelector('#section')
+// // var box = Array.from(document.querySelectorAll('.box'))
+// // var cross = document.querySelector('.cross')
+// // var circle = document.querySelector('.zero')
+// // var p1 = document.querySelector('.p1')
+// // var p2 = document.querySelector('.p2')
+// // var player1 = document.querySelector('.player1')
+// // var player2 = document.querySelector('.player2')
+// // var result = document.querySelector('#result')
+
+// // container.addEventListener('click', e)
     
     
 
