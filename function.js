@@ -1,25 +1,93 @@
-var playerOne; 
-var playerTwo;
-var section = document.querySelector('section')
-var left1 = document.querySelector('section .left1')
-var left2 =  document.querySelector('section .left2')
-var left3 = document.querySelector ('section .left3')
-var middle1 = document.querySelector('section .middle1')
-var middle2 = document.querySelector('section .middle2')
-var middle3 = document.querySelector('section .middle3')
-var right1 = document.querySelector ('section .right1')
-var right2 = document.querySelector ('section .right2')
-var right3 = document.querySelector ('section .right3')
-var main = document.querySelectorAll('main')
+
+var playerX; 
+var playerY;
+var box1 = document.querySelectorAll('#box1')
+var box2 = document.querySelectorAll('#box2')
+var box3 = document.querySelectorAll('#box3')
+var box4 = document.querySelectorAll('#box4')
+var box5 = document.querySelectorAll('#box5')
+var box6 = document.querySelectorAll('#box6')
+var box7 = document.querySelectorAll('#box7')
+var box8 = document.querySelectorAll('#box8')
+var box9 = document.querySelectorAll('#box9')
+var container = document.querySelector('#section')
 var cross = document.querySelector('.cross')
 var circle = document.querySelector('.circle')
+var p1 = document.querySelector('.p1')
+var p2 = document.querySelector('.p2')
+var player1 = document.querySelector('.player1')
+var player2 = document.querySelector('.player2')
+var result = document.querySelector('#result')
 
 
-function boxText(X, Y) {
-    right1.addEventListener(boxText('X', 'Y'))
-    right1.textContent = "X"
-    
+
+function myClick(X, Y){ 
+    if (box1 ===O && box2 === X && box3 === X){
+        document.querySelector('#result').textContent = 'Player X Won' 
+    } else if (box1 === X && box4 === X && box7 === X){
+        document.querySelector('#result').textContent = 'Player X Won'
+    } else if (box1 === X && box5 === X && box9 === X){
+        document.querySelector('#result').textContent = 'Player X Won'
+    } else if (box2 === X && box5 === X && box8 === X){
+        document.querySelector('#result').textContent = 'Player X Won'
+    } else if (box3 === X && box6 === X && box9 === X){
+        document.querySelector('#result').textContent = 'Player X Won'
+    } else if (box4 === X && box5 === X && box6 === X){
+        document.querySelector('#result').textContent = 'Player X Won'
+    } else if (box7 === X && box5 === X && box3 === X){
+        document.querySelector('#result').textContent = 'Player X Won'
+    } else if (box7 === X && box8 === X && box9 === X){
+        document.querySelector('#result').textContent = 'Player X Won'
+} else if (box1 ===O && box2 ===O && box3 ===O){
+    document.querySelector('#result').textContent = 'Player O Won' 
+} else if (box1 ===O && box4 ===O && box7 ===O){
+    document.querySelector('#result').textContent = 'PlayerO Won'
+} else if (box1 ===O && box5 ===O && box9 ===O){
+    document.querySelector('#result').textContent = 'Player O Won'
+} else if (box2 ===O && box5 ===O && box8 ===O){
+    document.querySelector('#result').textContent = 'PlayerO Won'
+} else if (box3 ===O && box6 ===O && box9 ===O){
+    document.querySelector('#result').textContent = 'Player O Won'
+} else if (box4 ===O && box5 ===O && box6 ===O){
+    document.querySelector('#result').textContent = 'PlayerO Won'
+} else if (box7 ===O && box5 ===O && box3 ===O){
+    document.querySelector('#result').textContent = 'PlayerO Won'
+} else if (box7 ===O && box8 ===O && box9 ===O){
+    document.querySelector('#result').textContent = 'Player O Won'
+} else {
+    document.querySelector('#result').textContent = 'It was a draw'
 }
+}
+
+function playerPick(text){
+    text.preventDefault()
+    document.querySelector('.player1').textContent = text
+    document.querySelector('.player2').textContent = text
+}
+}
+
+
+// player1.addEventListener('click', function(){
+//     if (flag === player1) {
+//         p1.textContent = "It's player one's turn"
+//     } else {
+//         p1.textContent = "It's player two's turn"
+//     }
+// })
+// }
+
+//     p1.textContent = 
+// }
+
+
+// container.addEventListener('click', function(event){
+//     var myClick = event.target
+//     if (myClick.tagName === 'DIV') {
+//     if () {
+//     myClick.textContent = 'X'
+//     }
+// }
+// })
 
 // if (playerOne === cross) {
 // section1.addEventListener('click', function(event){
