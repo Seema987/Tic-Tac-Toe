@@ -3,15 +3,90 @@
 var container = document.querySelector('#section')
 var boxes = document.querySelector('section .box')
 var text = document.querySelector('div .text')
+var box0 =document.querySelector('.box0')
+var box1 = document.querySelector('.box1')
+var box2 = document.querySelector('.box2')
+var box3 = document.querySelector('.box3')
+var box4 = document.querySelector('.box4')
+var box5 = document.querySelector('.box5')
+var box6 = document.querySelector('.box6')
+var box7 = document.querySelector('.box7')
+var box8 = document.querySelector('.box8')
+var result = document.querySelector('#result')
 
-var X = 'X'
+var playerX = 'X'
+var playerO = 'O'
+var turn = 'X'
 
 container.addEventListener('click', function(event){
     boxClicked = event.target
-    if(boxClicked.tagName === 'DIV'){
-        boxClicked.textContent = X
+    if(turn === playerX) {
+        boxClicked.textContent = playerX
+        turn = playerO
+        //Is this a winning condtition
+    } else {
+        boxClicked.textContent = playerO
+        turn = playerX
+    
     }
-})
+
+    if (box0 === playerX && box1 === playerX&& box2 === X){
+                result.textContent = 'Player playerX Won' 
+         } else if (box1 === playerX&& box4 === playerX&& box7 === X){
+                result.textContent = 'Player playerX Won'
+        } else if (box1 === playerX&& box5 === playerX&& box9 === X){
+                result.textContent = 'Player playerX Won'
+        } else if (box2 === playerX&& box5 === playerX&& box8 === X){
+                result.textContent = 'Player playerX Won'
+        } else if (box3 === playerX&& box6 === playerX&& box9 === X){
+                result.textContent = 'Player playerX Won'
+        } else if (box4 === playerX&& box5 === playerX&& box6 === X){
+                result.textContent = 'Player playerX Won'
+        } else if (box7 === playerX&& box5 === playerX&& box3 === X){
+                result.textContent = 'Player playerX Won'
+        } else if (box7 === playerX&& box8 === playerX&& box9 === X){
+                result.textContent = 'Player playerX Won'
+        } else if (box1 ===playerO&& box2 ===playerO&& box3 ===O){
+            document.querplayerOSelector('#result').textContent = 'PlayerO won' 
+        } else if (box1 ===playerO&& box4 ===playerO&& box7 ===O){
+            document.querplayerOSelector('#result').textContent = 'Player O won'
+        } else if (box1 ===playerO&& box5 ===playerO&& box9 ===O){
+            document.querplayerOSelector('#result').textContent = 'PlayerO won'
+        } else if (box2 ===playerO&& box5 ===playerO&& box8 ===O){
+            document.querplayerOSelector('#result').textContent = 'Player O won'
+        } else if (box3 ===playerO&& box6 ===playerO&& box9 ===O){
+            document.querplayerOSelector('#result').textContent = 'PlayerO won'
+        } else if (box4 ===playerO&& box5 ===playerO&& box6 ===O){
+            document.querplayerOSelector('#result').textContent = 'Player O won'
+        } else if (box7 ===playerO&& box5 ===playerO&& box3 ===O){
+            document.querplayerOSelector('#result').textContent = 'Player O won'
+        } else if (box7 ===playerO&& box8 ===playerO&& box9 ===O){
+            document.querplayerOSelector('#result').textContent = 'Player YWon'
+} else if ((box0 == playerO || box0 == playerX) && (box1 == playerO || box1 == playerX) && (box2 == playerO || box2 == playerX) && (box3 == playerO || box3 == playerX) && (box4 == playerO || box4 == playerX) && (box5 == playerO || box5 == playerX) && (box6 == playerO || box6 == playerX) && (box7 == playerO || box7 == playerX) && (box8 == playerO || box8 == playerX)){
+            document.querySelector('#result').textContent = 'It was a draw'
+        }
+    
+
+});
+
+
+
+
+
+
+    // if(boxClicked.tagName === 'DIV'){
+    //     boxClicked.textContent = X
+    // } 
+
+    // if (turn === )
+
+
+
+
+
+
+
+
 
 
 // var
@@ -61,7 +136,7 @@ container.addEventListener('click', function(event){
 // // var playerY;
 
 // // var container = document.querySelector('#section')
-// // var box = Array.from(document.querySelectorAll('.box'))
+// // var boplayerX= Array.from(document.querySelectorAll('.box'))
 // // var cross = document.querySelector('.cross')
 // // var circle = document.querySelector('.zero')
 // // var p1 = document.querySelector('.p1')
@@ -83,7 +158,7 @@ container.addEventListener('click', function(event){
 // })
 
 // function myClick(X, Y){ 
-//     if (box1 ===X && box2 === X && box3 === X){
+//     if (box1 ===playerX&& box2 === playerX&& box3 === X){
 //         document.querySelector('#result').textContent = 'Player X Won' 
 //     } else if (box1 === X && box4 === X && box7 === X){
 //         document.querySelector('#result').textContent = 'Player X Won'
