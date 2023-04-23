@@ -18,7 +18,7 @@ var button = document.querySelector('.reset')
 var isPlayer1 = true //switch turn
 var hasWon = false; //to see if game is over or not
 
-var winning_sequence = [
+var winning_sequence = [ //all possible wins!
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
@@ -30,46 +30,46 @@ var winning_sequence = [
     [1, 5, 9],
     [7, 5, 3]
 ]
-var clickedBoxes = [] //boxes clicked....record
-var user_1_value = [] //1 lae k click garyo
-var user_2_value = [] //2 ''''''
+var clickedBoxes = [] //record of all boxes clicked
+var user_1_value = [] //record of all boxes clicked by player1
+var user_2_value = [] //record of all boxes clicked by player2
 
 function clickBox(event,boxLocation){
-    if(clickedBoxes.indexOf(boxLocation) >= 0 || hasWon){ //click garna milxa
-        return; //tala ko function chalaena
+    if(clickedBoxes.indexOf(boxLocation) >= 0 || hasWon){ //function clickbox is targetig each box location.
+        return; //if above condition is true, below function will not work
     }
     if(isPlayer1){
-        user_1_value.push(boxLocation);
-        event.target.textContent = "X";
+        user_1_value.push(boxLocation); //index of button clicked is stored in user1 array
+        event.target.textContent = "X"; 
     }else{
-        user_2_value.push(boxLocation);
+        user_2_value.push(boxLocation); //index of button clicked is stored in user2 array
         event.target.textContent = "0";
     }
     clickedBoxes.push(boxLocation)
     checkWinner()
 }
 
-function checkWinner(){
-    var winningSequence = 0; //jitna ko lagi 3hunu parxa
+function checkWinner(){ //this function checks the winner
+    var winningSequence = 0; //current value is 0 but to win the value has to be 3 
     var userValue = []
 
     if (isPlayer1){
-        userValue = user_1_value;
+        userValue = user_1_value; //userValue changes as the player switch
     }else{
         userValue = user_2_value;
     }
-    for(var i = 0; i < winning_sequence.length; i++){
+    for(var i = 0; i < winning_sequence.length; i++){ //1st loop checks the length of winning sequence's length which is defined above. 
         if(winningSequence != 3){
-            winningSequence = 0; //2 bata 3 janxa
-            for(var j = 0; j<userValue.length; j++){ //user lae k k click garyo
+            winningSequence = 0; 
+            for(var j = 0; j<userValue.length; j++){ //2nd loop checks the length of userValue.
                 if(winning_sequence[i].indexOf(userValue[j]) >= 0){
-                    winningSequence = winningSequence+1;
+                    winningSequence = winningSequence+1; //if the index of userValue is the winning_sequence is greater than 0, 1 is added to the winning sequence. Meaning if player1, his X is recorded is he captures one place in that winning sequence. 
                 }
             }
         }
     }
     
-    if(winningSequence === 3){
+    if(winningSequence === 3){  //giving winninf message
         hasWon = true;
         if(isPlayer1){
             result.textContent = "Player 1 has won";
@@ -80,12 +80,12 @@ function checkWinner(){
     }
 
     if (clickedBoxes.length === 9 && hasWon !== true && clickedBoxes.length !== ''){
-        result.textContent = 'Draw'
+        result.textContent = 'Draw' //giving draw message
     }
     isPlayer1 = !isPlayer1 //swap
 }
 
-button.addEventListener('click', function(event){
+button.addEventListener('click', function(event){  //game reset
     user_1_value = [];
     user_2_value = [];
     clickedBoxes = [];
@@ -102,6 +102,7 @@ box8.textContent = "";
 hasWon = false;
 })
 
+//givving event listener to each boxes of game board
 document.querySelector("#box0").addEventListener('click', function(event){
     clickBox(event, 1)
 })
