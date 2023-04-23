@@ -99,6 +99,7 @@ box5.textContent = "";
 box6.textContent = "";
 box7.textContent = "";
 box8.textContent = "";
+hasWon = false;
 })
 
 document.querySelector("#box0").addEventListener('click', function(event){
