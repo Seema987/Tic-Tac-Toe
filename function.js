@@ -36,8 +36,8 @@ var user_2_value = [] //record of all boxes clicked by player2
 
 function clickBox(event,boxLocation){
     if(clickedBoxes.indexOf(boxLocation) >= 0 || hasWon){ //function clickbox is targetig each box location.
-        return; //if above condition is true, below function will not work
-    }
+        return; //if above condition is true, below function will not work.stops  us from double cliking 
+    } 
     if(isPlayer1){
         user_1_value.push(boxLocation); //index of button clicked is stored in user1 array
         event.target.textContent = "X"; 
@@ -91,15 +91,15 @@ button.addEventListener('click', function(event){  //game reset
     clickedBoxes = [];
     result.textContent = "";
     box0.textContent = "";
-box1.textContent = "";
-box2.textContent = "";
-box3.textContent = "";
-box4.textContent = "";
-box5.textContent = "";
-box6.textContent = "";
-box7.textContent = "";
-box8.textContent = "";
-hasWon = false;
+    box1.textContent = "";
+    box2.textContent = "";
+    box3.textContent = "";
+    box4.textContent = "";
+    box5.textContent = "";
+    box6.textContent = "";
+    box7.textContent = "";
+    box8.textContent = "";
+    hasWon = false;
 })
 
 //givving event listener to each boxes of game board
