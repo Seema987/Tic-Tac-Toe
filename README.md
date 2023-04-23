@@ -1,5 +1,5 @@
 # TIC-TAC-TOE 
-:computer: [Click here]()
+:computer: [Click here](https://seema987.github.io/Tic-Tac-Toe/)
 ## :memo: Game plan
 ![image](https://raw.githubusercontent.com/Seema987/Tic-Tac-Toe/main/IMG_9071.jpg)
 

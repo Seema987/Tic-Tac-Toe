@@ -130,6 +130,8 @@ document.querySelector("#box8").addEventListener('click', function(event){
     clickBox(event, 9)
 })
 
+
+
 // container.addEventListener('click', function(event){
 //     boxClicked = event.target
 //     if(turn === playerX) {
