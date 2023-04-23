@@ -1,21 +1,14 @@
 
 
-* {
-    margin: 0;
-    padding:0;
-    
-    justify-content: center;
-    align-items: center;
-    height: 100px
-}
+
 #section {
     width: 400px;
     height: 400px;
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 100px 100px 100px;
-    justify-content: center;
     
+     
 }
 
 
@@ -23,9 +16,117 @@
     border: 2px solid black;
     width: 100px;
     height:100px;
-    align-content: center;
+    justify-content: center;
     gap:0;
+    font-size: 90px;
+    text-align: center;
+    transition: ease-out;
+    margin-top: 100px;
+    
 } 
 
-
+.box:hover {
+    background-color: rgb(251, 251, 251);
+    cursor: pointer;
+}
     
+body {
+    display: flex;
+    background-image: linear-gradient(to right, rgb(235, 167, 167), rgb(241, 186, 82), rgb(218, 218, 158), rgb(189, 241, 189), rgb(196, 196, 249), rgb(231, 198, 255),rgb(250, 204, 250) );
+    animation: colorFade 15s infinite;
+    margin-top: 100px;
+    gap: 0px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: colorFade 15s infinite;
+}
+
+#result  {
+    text-align: center;
+    font-size: 80px;
+    transition: 1.5s;
+    margin-bottom: 10px;
+    animation: colorFade 15s infinite;
+
+}
+
+h1 {
+    margin-bottom: 50px;
+    margin-top: 0;
+    text-align: center;
+    margin-left: 100px;
+    font-family:fantasy;
+    font-size: 60px;
+    animation: colorFade 15s infinite;
+}
+
+.reset  {
+    margin-right: 0;
+    margin-left: 400px;
+    font-size: 30px;
+    margin-bottom: 0;
+    animation: colorFade 15s infinite;
+}
+
+#box0 {
+    border-left-style: none;
+    border-top-style: none;
+}
+
+#box1 {
+    border-top-style: none;
+}
+
+#box2 {
+    border-top-style: none;
+    border-right-style: none;
+}
+
+#box3 {
+    border-left-style: none;
+}
+
+#box5 {
+    border-right-style: none;
+}
+
+#box6 {
+    border-left-style: none;
+    border-bottom-style: none;
+}
+
+#box7{
+    border-bottom-style: none;
+}
+
+#box8 {
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+
+@keyframes colorFade {
+    0% {
+      color: rgb(238, 151, 51);
+    }
+
+    10% {
+      color: rgb(59, 143, 59);
+    }
+
+    30% {
+      color: rgb(89, 89, 233);
+    }
+
+    50% {
+      color: rgb(235, 12, 12);
+    }
+
+    80% {
+      color: rgb(122, 114, 48);
+    }
+
+    100% {
+      color: rgb(174, 57, 174);
+    }
+  }

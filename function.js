@@ -3,71 +3,191 @@
 var container = document.querySelector('#section')
 var boxes = document.querySelector('section .box')
 var text = document.querySelector('div .text')
-var box0 =document.querySelector('.box0')
-var box1 = document.querySelector('.box1')
-var box2 = document.querySelector('.box2')
-var box3 = document.querySelector('.box3')
-var box4 = document.querySelector('.box4')
-var box5 = document.querySelector('.box5')
-var box6 = document.querySelector('.box6')
-var box7 = document.querySelector('.box7')
-var box8 = document.querySelector('.box8')
+var box0 =document.querySelector('#box0')
+var box1 = document.querySelector('#box1')
+var box2 = document.querySelector('#box2')
+var box3 = document.querySelector('#box3')
+var box4 = document.querySelector('#box4')
+var box5 = document.querySelector('#box5')
+var box6 = document.querySelector('#box6')
+var box7 = document.querySelector('#box7')
+var box8 = document.querySelector('#box8')
 var result = document.querySelector('#result')
+var button = document.querySelector('.reset')
 
-var playerX = 'X'
-var playerO = 'O'
-var turn = 'X'
+var isPlayer1 = true //switch turn
+var hasWon = false; //to see if game is over or not
 
-container.addEventListener('click', function(event){
-    boxClicked = event.target
-    if(turn === playerX) {
-        boxClicked.textContent = playerX
-        turn = playerO
-        //Is this a winning condtition
-    } else {
-        boxClicked.textContent = playerO
-        turn = playerX
+var winning_sequence = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9],
+
+    [1, 5, 9],
+    [7, 5, 3]
+]
+var clickedBoxes = [] //boxes clicked....record
+var user_1_value = [] //1 lae k click garyo
+var user_2_value = [] //2 ''''''
+
+function clickBox(event,boxLocation){
+    if(clickedBoxes.indexOf(boxLocation) >= 0 || hasWon){ //click garna milxa
+        return; //tala ko function chalaena
+    }
+    if(isPlayer1){
+        user_1_value.push(boxLocation);
+        event.target.textContent = "X";
+    }else{
+        user_2_value.push(boxLocation);
+        event.target.textContent = "0";
+    }
+    clickedBoxes.push(boxLocation)
+    checkWinner()
+}
+
+function checkWinner(){
+    var winningSequence = 0; //jitna ko lagi 3hunu parxa
+    var userValue = []
+
+    if (isPlayer1){
+        userValue = user_1_value;
+    }else{
+        userValue = user_2_value;
+    }
+    for(var i = 0; i < winning_sequence.length; i++){
+        if(winningSequence != 3){
+            winningSequence = 0; //2 bata 3 janxa
+            for(var j = 0; j<userValue.length; j++){ //user lae k k click garyo
+                if(winning_sequence[i].indexOf(userValue[j]) >= 0){
+                    winningSequence = winningSequence+1;
+                }
+            }
+        }
+    }
     
+    if(winningSequence === 3){
+        hasWon = true;
+        if(isPlayer1){
+            result.textContent = "Player 1 has won";
+        }else{
+            result.textContent = "Player 2 has won";
+        }
+        
     }
 
-    if (box0 === playerX && box1 === playerX&& box2 === X){
-                result.textContent = 'Player playerX Won' 
-         } else if (box1 === playerX&& box4 === playerX&& box7 === X){
-                result.textContent = 'Player playerX Won'
-        } else if (box1 === playerX&& box5 === playerX&& box9 === X){
-                result.textContent = 'Player playerX Won'
-        } else if (box2 === playerX&& box5 === playerX&& box8 === X){
-                result.textContent = 'Player playerX Won'
-        } else if (box3 === playerX&& box6 === playerX&& box9 === X){
-                result.textContent = 'Player playerX Won'
-        } else if (box4 === playerX&& box5 === playerX&& box6 === X){
-                result.textContent = 'Player playerX Won'
-        } else if (box7 === playerX&& box5 === playerX&& box3 === X){
-                result.textContent = 'Player playerX Won'
-        } else if (box7 === playerX&& box8 === playerX&& box9 === X){
-                result.textContent = 'Player playerX Won'
-        } else if (box1 ===playerO&& box2 ===playerO&& box3 ===O){
-            document.querplayerOSelector('#result').textContent = 'PlayerO won' 
-        } else if (box1 ===playerO&& box4 ===playerO&& box7 ===O){
-            document.querplayerOSelector('#result').textContent = 'Player O won'
-        } else if (box1 ===playerO&& box5 ===playerO&& box9 ===O){
-            document.querplayerOSelector('#result').textContent = 'PlayerO won'
-        } else if (box2 ===playerO&& box5 ===playerO&& box8 ===O){
-            document.querplayerOSelector('#result').textContent = 'Player O won'
-        } else if (box3 ===playerO&& box6 ===playerO&& box9 ===O){
-            document.querplayerOSelector('#result').textContent = 'PlayerO won'
-        } else if (box4 ===playerO&& box5 ===playerO&& box6 ===O){
-            document.querplayerOSelector('#result').textContent = 'Player O won'
-        } else if (box7 ===playerO&& box5 ===playerO&& box3 ===O){
-            document.querplayerOSelector('#result').textContent = 'Player O won'
-        } else if (box7 ===playerO&& box8 ===playerO&& box9 ===O){
-            document.querplayerOSelector('#result').textContent = 'Player YWon'
-} else if ((box0 == playerO || box0 == playerX) && (box1 == playerO || box1 == playerX) && (box2 == playerO || box2 == playerX) && (box3 == playerO || box3 == playerX) && (box4 == playerO || box4 == playerX) && (box5 == playerO || box5 == playerX) && (box6 == playerO || box6 == playerX) && (box7 == playerO || box7 == playerX) && (box8 == playerO || box8 == playerX)){
-            document.querySelector('#result').textContent = 'It was a draw'
-        }
-    
+    if (clickedBoxes.length === 9 && hasWon !== true && clickedBoxes.length !== ''){
+        result.textContent = 'Draw'
+    }
+    isPlayer1 = !isPlayer1 //swap
+}
 
-});
+button.addEventListener('click', function(event){
+    user_1_value = [];
+    user_2_value = [];
+    clickedBoxes = [];
+    result.textContent = "";
+    box0.textContent = "";
+box1.textContent = "";
+box2.textContent = "";
+box3.textContent = "";
+box4.textContent = "";
+box5.textContent = "";
+box6.textContent = "";
+box7.textContent = "";
+box8.textContent = "";
+})
+
+document.querySelector("#box0").addEventListener('click', function(event){
+    clickBox(event, 1)
+})
+document.querySelector("#box1").addEventListener('click', function(event){
+    clickBox(event, 2)
+})
+document.querySelector("#box2").addEventListener('click', function(event){
+    clickBox(event, 3)
+})
+document.querySelector("#box3").addEventListener('click', function(event){
+    clickBox(event, 4)
+})
+document.querySelector("#box4").addEventListener('click', function(event){
+    clickBox(event, 5)
+})
+document.querySelector("#box5").addEventListener('click', function(event){
+    clickBox(event, 6)
+})
+document.querySelector("#box6").addEventListener('click', function(event){
+    clickBox(event, 7)
+})
+document.querySelector("#box7").addEventListener('click', function(event){
+    clickBox(event, 8)
+})
+document.querySelector("#box8").addEventListener('click', function(event){
+    clickBox(event, 9)
+})
+
+// container.addEventListener('click', function(event){
+//     boxClicked = event.target
+//     if(turn === playerX) {
+//         boxClicked.textContent = playerX 
+//         turn = playerO
+//         //Is this a winning condtition
+//     } else {
+//         boxClicked.textContent = playerO
+//         turn = playerX
+    
+//     }
+
+
+
+//     function checkWinner(){
+
+//     if (box0.textContent === playerX && box1.textContent === playerX && box2.textContent === playerX){
+//         document.querySelector('#result').textContent = 'PlayerX Won' 
+//          } else if (box1.textContent === playerX && box4.textContent === playerX && box7.textContent === X){
+//                 result.textContent = 'PlayerX Won'
+//         } else if (box1.textContent === playerX && box5.textContent === playerX && box9.textContent === X){
+//                 result.textContent = 'PlayerX Won'
+//         } else if (box2.textContent === playerX && box5.textContent === playerX && box8.textContent === X){
+//                 result.textContent = 'PlayerX Won'
+//         } else if (box3.textContent === playerX && box6.textContent === playerX && box9.textContent === X){
+//                 result.textContent = 'PlayerX Won'
+//         } else if (box4.textContent === playerX && box5.textContent === playerX && box6.textContent === X){
+//                 result.textContent = 'PlayerX Won'
+//         } else if (box7.textContent === playerX && box5.textContent === playerX && box3.textContent === X){
+//                 result.textContent = 'PlayerX Won'
+//         } else if (box7.textContent === playerX && box8.textContent === playerX && box9.textContent === X){
+//                 result.textContent = 'PlayerX Won'
+//         } else if (box1.textContent ===playerO && box2.textContent ===playerO && box3.textContent ===O){
+//             result.textContent = 'PlayerO won' 
+//         } else if (box1.textContent ===playerO && box4.textContent ===playerO && box7.textContent ===playerO){
+//             result.textContent = 'PlayerO won'
+//         } else if (box1.textContent ===playerO && box5.textContent ===playerO && box9.textContent ===O){
+//             result.textContent = 'PlayerO won'
+//         } else if (box2.textContent ===playerO && box5.textContent ===playerO && box8.textContent ===O){
+//             result.textContent = 'Player O won'
+//         } else if (box3.textContent ===playerO&& box6.textContent ===playerO&& box9.textContent ===playerO){
+//             result.textContent = 'PlayerO won'
+//         } else if (box4.textContent ===playerO&& box5.textContent ===playerO&& box6.textContent ===O){
+//             result.textContent = 'PlayerO won'
+//         } else if (box7.textContent ===playerO&& box5.textContent ===playerO&& box3.textContent === O){
+//             result.textContent = 'PlayerO won'
+//         } else if (box7.textContent ===playerO && box8.textContent === playerO && box9.textContent === playerO){
+//             result.textContent = 'Player YWon'
+//         } else if ((box0.textContent == playerO || box0.textContent == playerX) && (box1.textContent == playerO || box1 == playerX) && (box2.textContent == playerO || box2.textContent == playerX) && (box3.textContent == playerO || box3.textContent == playerX) && (box4.textContent == playerO || box4.textContent == playerX) && (box5.textContent == playerO || box5.textContent == playerX) && (box6.textContent == playerO || box6.textContent == playerX) && (box7.textContent == playerO || box7.textContent == playerX) && (box8.textContent == playerO || box8.textContent == playerX)){
+//             result.textContent = 'It was a draw'
+//         } else {
+//             result.textContent = 'Game Over'
+//         }
+//     }
+// });
+
+// button.addEventListener('click', function(){
+//     return;
+// })
 
 
 
@@ -263,46 +383,3 @@ container.addEventListener('click', function(event){
 
 
 
-// var userChoice = [img1, img2]
- 
-// if (playerChoice === img1) {
-//     document.left1.appendChild(img1);
-// }
-
-
-
-// var left1 = document.querySelector('.left1')
-// left1.addEventListener('click', function(){
-//     var img1 = document.querySelector('.img1')
-//     img1.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/U%2B2179.svg/1200px-U%2B2179.svg.png"  
-//     img1.style.border = '2px'
-//     img1.style.width = '60px'
-//     img1.style.height = '60px'
-//     img1.style.marginLeft = '20px'
-//     img1.style.marginTop = '10px'
-//     document.left1.appendChild(img1);
-
-    
-//     var img2 = document.querySelector('.img2')
-//     img2.src = "https://images.unsplash.com/photo-1613905392914-2ca5fbab0923?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG98ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-//     img2.style.border = '2px'
-//     img2.style.width = '60px'
-//     img2.style.height = '60px'
-//     img2.style.marginLeft = '20px'
-//     img2.style.marginTop = '10px'
-//     document.left1.appendChild(img2);
-
-//     left1.toggle(img2)
-    
-// })
-
-// var img1 = document.querySelector('.img1')
-
-// img1.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/U%2B2179.svg/1200px-U%2B2179.svg.png" 
-// img1.style.border = '2px'
-//     img1.style.width = '60px'
-//     img1.style.height = '60px'
-//     img1.style.marginLeft = '20px'
-//     img1.style.marginTop = '10px' 
-// var img2 = document.querySelector('.img2')
-// img2.src = "https://images.unsplash.com/photo-1613905392914-2ca5fbab0923?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG98ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
