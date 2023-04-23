@@ -1,6 +1,6 @@
 # TIC-TAC-TOE 
 ## :pray: Welcome To My tip-top :nail_care: Tic-Tac-Toe GAME
-:computer: [Click here](https://seema987.github.io/Tic-Tac-Toe/)
+:computer: [Click here](https://seema987.github.io/Tic-Tac-Toe/) to play! 
 ## :memo: Game plan
 ### :ghost: HTML Outline
 1. :page_with_curl: First create a HTML file. 
@@ -26,6 +26,12 @@
 ### :bug: Bugs to fix 
 1. :shit: When you click the reset button X and O are swapped. If X started first earlier, now O will be  starting first. This needs to be fixed if you wish X to start every game. And if you love the swap it's perfect. :innocent:
 2. :boom: This game could have received mmore CSS features which is definitely my plan. Adding some sound effect, better background, and some cute little emojis. :kissing_smiling_eyes:
+
+## Picture below shows my rough  plan.
+### Final product may not be exact same. 
+[![IMG-9071.jpg](https://i.postimg.cc/kXWzrknt/IMG-9071.jpg)](https://postimg.cc/zVX0K2HJ)
+
+[![IMG-9072.jpg](https://i.postimg.cc/Wzsd8BSc/IMG-9072.jpg)](https://postimg.cc/1nYR5YLv)
 
 
 
