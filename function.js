@@ -63,18 +63,18 @@ function checkWinner(){ //this function checks the winner
             winningSequence = 0; 
             for(var j = 0; j<userValue.length; j++){ //2nd loop checks the length of userValue.
                 if(winning_sequence[i].indexOf(userValue[j]) >= 0){
-                    winningSequence = winningSequence+1; //if the index of userValue is the winning_sequence is greater than 0, 1 is added to the winning sequence. Meaning if player1, his X is recorded is he captures one place in that winning sequence. 
+                    winningSequence = winningSequence+1; //if the index of userValue in the winning_sequence is greater than 0, 1 is added to the winning sequence. Meaning if player1, his X is recorded is he captures one place in that winning sequence. 
                 }
             }
         }
     }
     
-    if(winningSequence === 3){  //giving winninf message
+    if(winningSequence === 3){  //giving winning message
         hasWon = true;
         if(isPlayer1){
-            result.textContent = "Player 1 has won";
+            result.textContent = "Player X has won";
         }else{
-            result.textContent = "Player 2 has won";
+            result.textContent = "Player O has won";
         }
         
     }
