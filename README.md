@@ -25,7 +25,7 @@
 
 ### :bug: Bugs to fix 
 1. :shit: When you click the reset button X and O are swapped. If X started first earlier, now O will be  starting first. This needs to be fixed if you wish X to start every game. And if you love the swap it's perfect. :innocent:
-2. :boom: This game could have received mmore CSS features which is definitely my plan. Adding some sound effect, better background, and some cute little emojis. :kissing_smiling_eyes:
+2. :boom: This game could have received more CSS features which is definitely my plan. Adding some sound effect, better background, and some cute little emojis. :kissing_smiling_eyes:
 
 ## Picture below shows my rough  plan.
 ### Final product may not be exact same. 

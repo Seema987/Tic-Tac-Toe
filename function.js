@@ -36,16 +36,16 @@ var user_2_value = [] //record of all boxes clicked by player2
 
 function clickBox(event,boxLocation){
     if(clickedBoxes.indexOf(boxLocation) >= 0 || hasWon){ //function clickbox is targetig each box location.
-        return; //if above condition is true, below function will not work.stops  us from double cliking 
+        return; //Stops  us from double cliking and discontinue after the game has been won.
     } 
     if(isPlayer1){
         user_1_value.push(boxLocation); //index of button clicked is stored in user1 array
-        event.target.textContent = "X"; 
+        event.target.textContent = "X"; //button clicked gets textContent of X
     }else{
         user_2_value.push(boxLocation); //index of button clicked is stored in user2 array
-        event.target.textContent = "0";
+        event.target.textContent = "0"; //button clicked gets textContent of O
     }
-    clickedBoxes.push(boxLocation)
+    clickedBoxes.push(boxLocation) //All the boxes clicked will also be stored in clickedBoxes array.
     checkWinner()
 }
 
